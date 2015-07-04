@@ -1,6 +1,9 @@
 # Koboldy
 
-TODO: Write a gem description
+Support library for kobold https://github.com/yahoo/kobold
+
+- Generate kobold-configuration
+- Run and analyse the result
 
 ## Installation
 

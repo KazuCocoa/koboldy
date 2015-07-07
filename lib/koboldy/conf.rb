@@ -15,21 +15,21 @@ class Koboldy
 
     # @param [String] path Defines the path to the second image that should be compared
     # @return [OpenStruct]
-    def image_a_path(path)
+    def add_image_a_path(path)
       @config.imageAPath = path
       self
     end
 
     # @param [String] path Defines the path to the first image that should be compared
     # @return [OpenStruct]
-    def image_b_path(path)
+    def add_image_b_path(path)
       @config.imageBPath = path
       self
     end
 
     # @param [String] path imageOutputPath Defines the path to the output-file. If you leaves this one off, then this feature is turned-off.
     # @return [OpenStruct]
-    def image_output_path(path)
+    def add_image_output_path(path)
       @config.imageOutputPath = path
       self
     end
@@ -39,7 +39,7 @@ class Koboldy
     #                            similar or different images("similar"),
     #                            or all comparisons. (default: all)
     # @return [OpenStruct]
-    def image_output_limit(difference)
+    def add_image_output_limit(difference)
       @config.imageOutputLimit = begin
         case difference
         when "different"
@@ -55,7 +55,7 @@ class Koboldy
 
     # @param [Boolean] boolean Verbose output (default: false)
     # @return [OpenStruct]
-    def verbose(boolean = false)
+    def add_verbose(boolean = false)
       @config.verbose = boolean
       self
     end
@@ -80,54 +80,61 @@ class Koboldy
     # @param [Integer] value Red intensity for the block-out in the output file (default: 0)
     #                        This color will only be visible in the result when debug-mode is turned on.
     # @return [OpenStruct]
-    def block_out_red(value)
+    def add_block_out_red(value)
       @config.blockOutRed = color_value(value)
+      self
     end
 
     # @param [Integer] value Green intensity for the block-out in the output file (default: 0)
     #                        This color will only be visible in the result when debug-mode is turned on.
     # @return [OpenStruct]
-    def block_out_green(value)
-      @config.blockOutBlue = color_value(value)
+    def add_block_out_green(value)
+      @config.blockOutGreen = color_value(value)
+      self
     end
 
     # @param [Integer] value Blue intensity for the block-out in the output file (default: 0)
     #                        This color will only be visible in the result when debug-mode is turned on.
     # @return [OpenStruct]
-    def block_out_blue(value)
-      @config.blockOutGreen = color_value(value)
+    def add_block_out_blue(value)
+      @config.blockOutBlue = color_value(value)
+      self
     end
 
     # @param [Integer] value Alpha intensity for the block-out in the output file (default: 255)
     # @return [OpenStruct]
-    def block_out_alpha(value)
+    def add_block_out_alpha(value)
       @config.blockOutAlpha = value.to_i
+      self
     end
 
     # @param [Integer] value Opacity of the pixel for the block-out in the output file (default: 1.0)
     # @return [OpenStruct]
-    def block_out_opacity(value)
+    def add_block_out_opacity(value)
       @config.blockOutOpacity = value.to_f
+      self
     end
 
     # @param [Integer] boolean  Copies the first image to the output image before the comparison begins.
     #                           This will make sure that the output image will highlight the differences on the first image. (default)
     # @return [OpenStruct]
-    def copy_image_a_to_output(boolean = true)
+    def add_copy_image_a_to_output(boolean = true)
       @config.copyImageAToOutput = boolean
+      self
     end
 
     # @param [Integer] boolean  Copies the second image to the output image before the comparison begins.
     #                           This will make sure that the output image will highlight the differences on the second image.
     # @return [OpenStruct]
-    def copy_image_b_to_output(boolean = false)
+    def add_copy_image_b_to_output(boolean = false)
       @config.copyImageBToOutput = boolean
+      self
     end
 
     # @param [String] filter_set  Filters that will be applied before the comparison.
     #                             Available filters are: blur, grayScale, lightness, luma, luminosity, sepia
     # @return [OpenStruct]
-    def filter(filter_set)
+    def add_filter(filter_set)
       @config.filter = filter_set
       self
     end
@@ -141,7 +148,7 @@ class Koboldy
 
     # @param [Boolean] boolean Creates as output a composition of all three images (approved, highlight, and build) (default: true)
     # @return [OpenStruct]
-    def composition(boolean = true)
+    def add_composition(boolean = true)
       @config.composition = boolean
       self
     end
@@ -215,7 +222,7 @@ class Koboldy
 
     # @param [Boolean] boolean Turn the perceptual comparison mode on. See below for more information.
     # @return [OpenStruct]
-    def perceptual(boolean = true)
+    def add_perceptual(boolean = true)
       @config.perceptual = boolean
       self
     end
@@ -223,28 +230,28 @@ class Koboldy
     # @param [Float] value gamma Gamma correction for all colors (will be used as base) (default: none)
     #                      - Any value here will turn the perceptual comparison mode on
     # @return [OpenStruct]
-    def gamma(value)
+    def add_gamma(value)
       @config.gamma = value.to_f
       self
     end
 
     # @param [Float] value gammaR Gamma correction for red - Any value here will turn the perceptual comparison mode on
     # @return [OpenStruct]
-    def gamma_r(value)
+    def add_gamma_r(value)
       @config.gammaR = value.to_f
       self
     end
 
     # @param [Float] value gammaG Gamma correction for green - Any value here will turn the perceptual comparison mode on
     # @return [OpenStruct]
-    def gamma_g(value)
+    def add_gamma_g(value)
       @config.gammaG = value.to_f
       self
     end
 
     # @param [Float] value gammaB Gamma correction for blue - Any value here will turn the perceptual comparison mode on
     # @return [OpenStruct]
-    def gamma_b(value)
+    def add_gamma_b(value)
       @config.gammaB = value.to_f
       self
     end

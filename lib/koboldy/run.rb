@@ -15,60 +15,60 @@ class Koboldy
     # @param [String] file A path to configuration file
     # @return [Self]
     def config(file)
-      @cmd.concat(" --config #{file}")
+      @cmd.concat(%( --config "#{file}"))
       self
     end
 
     # @param [String] expected_folder A path to expected files
     # @return [Self]
     def approved(expected_folder)
-      @cmd.concat(" --approved-folder #{expected_folder}")
+      @cmd.concat(%( --approved-folder "#{expected_folder}"))
       self
     end
 
     # @param [String] compared_folder A path to compared files
     # @return [Self]
     def highlight(compared_folder)
-      @cmd.concat(" --highlight-folder #{compared_folder}")
+      @cmd.concat(%( --highlight-folder "#{compared_folder}"))
       self
     end
 
     # @param [String] test_target_folder A path to test target files
     # @return [Self]
     def build(test_target_folder)
-      @cmd.concat(" --build-folder #{test_target_folder}")
+      @cmd.concat(%( --build-folder "#{test_target_folder}"))
       self
     end
 
     # Add "--fail-orphans" option
     # @return [Self]
     def fail_orphans
-      @cmd.concat(" --fail-orphans")
+      @cmd.concat(%( --fail-orphans))
       self
     end
 
     # Add "--fail-additions" option
     # @return [Self]
     def fail_additions
-      @cmd.concat(" --fail-additions")
+      @cmd.concat(%( --fail-additions))
       self
     end
 
     # @param [String] command Add aditional options.
     # @return [Self]
     def additional_option(command)
-      @cmd.concat(" #{command}")
+      @cmd.concat(%( #{command}))
       self
     end
 
     # @param [String] path Path of current path.
     def base_uri(path)
-      @cmd.concat(" #{path}")
+      @cmd.concat(%( "#{path}"))
     end
 
     # @param [String] in_file_path A path to file which you would like to save standard output and error.
     # @return [String] File path which is saved results.
-    def check_and_save(in_file_path = "./tmp/kobold.txt")
+    def check_and_save(in_file_path = %(./tmp/kobold.txt))
       fail "no command: #{@cmd}" if @cmd.nil?
       Koboldy::Io.capture(@cmd, in_file_path)
       in_file_path

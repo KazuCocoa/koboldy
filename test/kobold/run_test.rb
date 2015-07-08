@@ -16,7 +16,7 @@ class RunTest < Test::Unit::TestCase
 
 
   def test_cmd_configuration
-    expected = "kobold --config a --approved-folder b --highlight-folder c --build-folder d --fail-orphans --fail-additions neko"
+    expected = %(kobold --config "a" --approved-folder "b" --highlight-folder "c" --build-folder "d" --fail-orphans --fail-additions "neko")
     cmd = @run
             .config("a")
             .approved("b")

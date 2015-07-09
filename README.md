@@ -90,37 +90,23 @@ cmd.check_and_save("result.txt")
   "additions": {
     "count": 2,
     "messages": [
-      [
-        "Screen is new: 0004_03_01_bargain_store_details"
-      ],
-      [
-        "Screen is new: 0017_01_05_open_contact5"
-      ]
+      "0004_03_01_bargain_store_details",
+      "0017_01_05_open_contact5"
     ]
   },
   "orphans": {
     "count": 3,
     "messages": [
-      [
-        "Error: Approved screen is orphaned: 0000_01_03_hot_recommend"
-      ],
-      [
-        "Error: Approved screen is orphaned: 0102_02_01_open_recipe_2446163"
-      ],
-      [
-        "Error: Approved screen is orphaned: 0102_02_02_open_tukurepo_2446163"
-      ]
+      "0000_01_03_hot_recommend",
+      "0102_02_01_open_recipe_2446163",
+      "0102_02_02_open_tukurepo_2446163"
     ]
   },
   "different": {
     "count": 2,
     "messages": [
-      [
-        "Error: Screens are different for 0000_01_04_recent"
-      ],
-      [
-        "Error: Screens are different for 0000_01_05_my_folder"
-      ]
+      "0000_01_04_recent",
+      "0000_01_05_my_folder"
     ]
   }
 }

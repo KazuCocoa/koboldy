@@ -120,19 +120,19 @@ class Koboldy
 
     def additions(result)
       result.scan(/Screen is new:.*/).map do |line|
-        line.to_s.split(/\u001b\[0m\u001b\[90m/)
+        line.to_s.split(/\u001b\[0m\u001b\[90m/).first.gsub(/\AScreen is new: /, "")
       end
     end
 
     def orphans(result)
       result.scan(/Error: Approved screen is orphaned.*/).map do |line|
-        line.to_s.split(/\u001b\[0m\u001b\[90m/)
+        line.to_s.split(/\u001b\[0m\u001b\[90m/).first.gsub(/\AError: Approved screen is orphaned: /, "")
       end
     end
 
     def different(result)
       result.scan(/Error: Screens are different for.*/).map do |line|
-        line.to_s.split(/\u001b\[0m\u001b\[90m/)
+        line.to_s.split(/\u001b\[0m\u001b\[90m/).first.gsub(/\AError: Screens are different for /, "")
       end
     end
   end # class Run

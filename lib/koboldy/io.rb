@@ -24,6 +24,7 @@ class Koboldy
       def capture(cmd, in_file_path)
         File.open(in_file_path, "w") do |file|
           Open3.popen2e(cmd) do |s_in, s_out, status|
+            s_in.close
             s_out.each { |line| file.puts(line) }
           end
         end

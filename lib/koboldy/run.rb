@@ -78,6 +78,7 @@ class Koboldy
     # @param [String] into_file(Option) A path you would like to save the result. If into_file is empty, then the method return JSON.
     # @return [String] into_file A path to saved result file.
     def results(from_path, into_file = "")
+      fail ArgumentError, "no #{from_path}" unless File.exist? from_path
       result = File.read(from_path)
       add, orp, dif = additions(result), orphans(result), different(result)
 

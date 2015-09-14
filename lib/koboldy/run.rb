@@ -70,6 +70,7 @@ class Koboldy
     # @return [String] File path which is saved results.
     def check_and_save(in_file_path = %(./tmp/kobold.txt))
       fail "no command: #{@cmd}" if @cmd.nil?
+      FileUtils.mkdir_p(File::dirname(in_file_path)) if Dir.exist?(File::dirname(in_file_path))
       Koboldy::Io.capture(@cmd, in_file_path)
       in_file_path
     end

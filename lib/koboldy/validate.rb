@@ -3,12 +3,12 @@ class Koboldy
   end
 
   module Command
-    def self.validate_kobold_result_with(file:)
+    def self.validate_installation_with_file(file)
       result = File.read(file)
-      validate_kobold_result result
+      validate_installation result
     end
 
-    def self.validate_kobold_result(string)
+    def self.validate_installation(string)
       raise ::Koboldy::NoJsModuleError, string unless string.scan(/Error: Cannot find module.*/).empty?
       string
     end

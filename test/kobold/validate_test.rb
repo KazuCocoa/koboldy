@@ -16,7 +16,7 @@ Error: Cannot find module 'graceful-fs'
     EOS
 
     assert_raise(::Koboldy::NoJsModuleError) do
-      ::Koboldy::Command.validate_kobold_result(test_string)
+      ::Koboldy::Command.validate_installation(test_string)
     end
   end
 
@@ -25,6 +25,6 @@ Error: Cannot find module 'graceful-fs'
 ok
     EOS
 
-    assert_equal "ok\n", ::Koboldy::Command.validate_kobold_result(test_string)
+    assert_equal "ok\n", ::Koboldy::Command.validate_installation(test_string)
   end
 end

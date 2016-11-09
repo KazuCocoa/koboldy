@@ -27,7 +27,7 @@ class TestKobold < Test::Unit::TestCase
   data(          # on/off
     "test1" => [true],
     "test2" => [false])
-  test "#add_hide_shift" do |(boolean)|
+  test "#add_hide_shift" do |boolean|
     @kobold.add_hide_shift boolean
     assert_equal(@kobold.config["hideShift"], boolean)
   end
@@ -36,7 +36,7 @@ class TestKobold < Test::Unit::TestCase
   data(          # on/off
     "test1" => [true],
     "test2" => [false])
-  test "#add_compose_left_to_right" do |(boolean)|
+  test "#add_compose_left_to_right" do |boolean|
     @kobold.add_compose_left_to_right boolean
     assert_equal(@kobold.config["composeLeftToRight"], boolean)
   end
